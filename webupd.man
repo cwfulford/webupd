@@ -49,7 +49,7 @@ been made to the web pages.
 .TP 5
 \fB-c \fI<config_file>\fR
 .br
-The default configuration file is "\fI/usr/local/etc/webupd.cf\fR"with the 
+The default configuration file is "\fI/usr/local/etc/webupd.cf\fR". The 
 .B -c
 option an alternative configuration file may be specified on the command
 line.
