@@ -1,0 +1,138 @@
+<h2 id="heading1">NAME</h2>
+<p class="indent">
+<b><a href="./scripts.php?script=webupd">webupd</a></b>
+- updates the 
+<b>awstats</b>
+statistics pages and the
+<b>dig</b>
+search indexes for an arbitrary number of websites on a remote server.
+</p>
+<h2 id="heading2">SYNOPSIS</h2>
+<p class="indent">
+
+<b><a href="./scripts.php?script=webupd">webupd</a></b>
+
+[[
+<b>-c</b>
+<i> &lt;config_file&gt;</i>
+]
+[
+<b>-d</b>
+]
+[
+<b>-v</b>
+]
+
+<i>&lt;host_name&gt;</i>
+] |
+[
+<b>-V</b>
+]
+</p>
+<h2 id="heading3">AVAILABILITY</h2>
+<p class="indent">
+<b><a href="./scripts.php?script=webupd">webupd</a></b>
+is a Bourne shell script which should work equally well on all versions of UNIX
+and Linux.
+</p>
+<h2 id="heading4">DESCRIPTION</h2>
+<p class="indent">
+</p>
+<p class="indent">
+The
+<b><a href="./scripts.php?script=webupd">webupd</a></b>
+uses the 
+<i>&lt;host_name&gt; </i>
+to look up the path to the web pages and the 
+name of the configuration files for
+<b>dig</b>
+and
+<b>awstats.</b>
+A
+<b>ssh</b>
+connection is made to
+<i>&lt;host_name&gt;</i>
+and the 
+<b>awstats perl</b>
+script
+<b>awstats.pl</b>
+is run to update the stats data set and generate static
+web pages for each web site.
+</p>
+<p class="indent">
+The 
+<b>dig</b>
+script
+<b>rundig</b>
+is then invoked to update the search data with any changes that have
+been made to the web pages.
+</p>
+<h2 id="heading5">OPTIONS</h2>
+<p class="indent">
+</p>
+<p class="indent">
+
+<b>-c </b>
+<i>&lt;config_file&gt;</i>
+
+The default configuration file is "
+<i>/usr/local/etc/<a href="./scripts.php?script=webupd.cf">webupd.cf</a></i>
+"with the 
+<b>-c</b>&nbsp;&nbsp;&nbsp;
+option an alternative configuration file may be specified on the command
+line.
+</p>
+<p class="indent">
+<b>-d</b>&nbsp;&nbsp;&nbsp;
+Run in debug mode.
+</p>
+<p class="indent">
+<b>-v</b>&nbsp;&nbsp;&nbsp;
+Run in verbose mode. 
+</p>
+<p class="indent">
+<b>-V</b>&nbsp;&nbsp;&nbsp;
+Print the version details to standard out and exit.
+</p>
+<h2 id="heading7">FILES</h2>
+<p class="indent">
+<i><a href="./scripts.php?script=webupd.cf">webupd.cf</a></i>.
+
+</p>
+<h2 id="heading6">EXAMPLES</h2>
+<p class="indent">
+
+</p><div class="cmdline">
+<pre>
+webupd  caswallon-gw 
+</pre></div>
+<p class="indent">
+</p>
+<p class="indent">
+The script will look for the configuration file in the default location
+i.e. 
+<i>/usr/local/etc/<a href="./scripts.php?script=webupd.cf">webupd.cf</a></i>
+.
+</p>
+<p class="indent">
+NB. The site names are abreviated in the example configuration file and appropriate
+alternative short path names are provided as symbolic links on disk. These sites
+could equally well have been written as "amharic-interpreter.com" "citylinux.com" etc.
+provided that the paths are available e.g. "usr/local/web/amharic-interpreter.com".
+</p>
+<h2 id="heading8">BUGS</h2>
+<p class="indent">
+The script has very little input error checking. The script is designed to be used
+with 
+<b>cron</b>
+where the resolution of the symbolic hostname is predictable.  It is assumed
+that
+<b>ssh </b>
+keys have already been exchanged and that the connection will be non problematic.
+</p>
+<h2 id="heading10">AUTHOR</h2>
+<p class="indent">
+Clifford W Fulford, City Linux. Contact fulford@fulford.net or call +44 (0)709 229 5385.
+
+</p>
+	

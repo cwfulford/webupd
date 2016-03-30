@@ -1,0 +1,42 @@
+#!/bin/bash
+# $Id: webupd,v 1.31 2015/04/03 17:22:46 fulford Exp $
+# $Source: /src/merlin/usr/local/etc/RCS/webupd,v $
+# $Revision: 1.31 $
+# Author C W Fulford.
+# Copyright (c) 2012-2013 C W Fulford. 
+# Licensed for public use under the LGPL.
+# For assistance contact fulford@fulford.net 0709 229 5385
+###################################################################
+debug=0
+cmd=`basename $0`
+#set -x
+syntax="$cmd [[-c <config_file>] [-d] [-v] <host_name>]|[-V]" 
+verbose=0
+
+while [ $# -gt 0 ];do
+	case $1 in
+		-c) config=$2;shift 22;;
+		-d) debug=1; set -x;shift ;;
+		-v) verbose=1 ;shift 1;;
+		-V) echo "$cmd $Revision: 1.31 $"|awk '{print $1,$3}';exit;;  
+		 *) host=$1;shift;;
+	esac
+done
+[ -z $host ] && { echo "syntax: $syntax">&2;exit 1 ;}
+config=${config:-/usr/local/etc/webupd.cf}
+if [ -r $config ];then
+	[ $verbose -gt 0 ] && echo "config = $config"
+	eval `sed -ne  '/^'$host':$/,/^$/{/^[ \t].*[^#]/p}' <$config `
+else
+	echo "$cmd can't find $config">&2
+	exit 1
+fi
+[ $verbose -gt 0 ] && echo "$cmd: updating awstats on $host" 
+for s in $sites ;do
+	[ $verbose -gt 0 ] && echo -n "updating awstats for $s on $host" 
+	ssh $host "cd $wwwroot/cgi-bin;sudo perl awstats.pl -config=$s -update -output -staticlinks |sudo dd of=$wwwroot/$s/awstats.html &2>/dev/null"
+	[ $verbose -gt 0 ] && echo " - done." 
+done
+
+[ $verbose -gt 0 ] && echo "updating dig for $dig_cf on $host" 
+ssh caswallon-gw "for conf in $dig_cf;do sudo rundig -c /etc/htdig/\$conf;done"

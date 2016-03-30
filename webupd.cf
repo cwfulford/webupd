@@ -1,0 +1,32 @@
+<pre>
+
+#$Id: webupd.cf,v 1.7 2015/04/03 16:32:55 fulford Exp $
+# $Source: /src/merlin/usr/local/etc/RCS/webupd.cf,v $
+# $RCSfile: webupd.cf,v $
+# $Revision: 1.7 $
+# $Date: 2015/04/03 16:32:55 $
+# Author Clifford W Fulford.
+# Copyright (c) 2013 C W Fulford. All right reserved
+########################################################
+caswallon-gw:
+	sites='ai cl cw fc fs jwf lts wb'
+	dig_cf='htwbi.conf htcl.conf htai.conf htcw.conf'
+	wwwroot='/usr/local/web'
+
+
+######################################################################
+# This program is free software: you can redistribute it and or      #
+# modify it under the terms of the Lesser GNU General Public License #
+# as published by the Free Software Foundation, either version 3 of  #
+# the License, or (at your option) any later version.                #
+#                                                                    #
+# This program is distributed in the hope that it will be useful,    #
+# but WITHOUT ANY WARRANTY; without even the implied warranty of     #    
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the      #
+# GNU General Public License for more details.                       #
+#                                                                    # 
+# A copy of the Lesser GNU General Public License and the GNU        #
+# General Public License is available at                             #
+# &#60;http://www.gnu.org/licenses/&#62;.                                    #
+######################################################################
+</pre>

@@ -1,0 +1,92 @@
+.TH WEBUPD 8l "1 October r1.31
+.SH NAME
+.B webupd
+- updates the 
+.B awstats
+statistics pages and the
+.B dig
+search indexes for an arbitrary number of websites on a remote server.
+.SH SYNOPSIS
+\fBwebupd\fR
+[[\fB-c\fI <config_file>\fR]
+[\fB-d\fR]
+[\fB-v\fR]
+\fI<host_name>\fR] |
+[\fB-V\fR]
+.SH AVAILABILITY
+.B webupd
+is a Bourne shell script which should work equally well on all versions of UNIX
+and Linux.
+.SH DESCRIPTION
+.LP
+The
+.B webupd
+uses the 
+.I <host_name> 
+to look up the path to the web pages and the 
+name of the configuration files for
+.B dig
+and
+.BR awstats .
+A
+.B ssh
+connection is made to
+.I <host_name>
+and the 
+.B awstats perl
+script
+.B awstats.pl
+is run to update the stats data set and generate static
+web pages for each web site.
+.LP
+The 
+.B dig
+script
+.B rundig
+is then invoked to update the search data with any changes that have
+been made to the web pages.
+.SH OPTIONS
+.TP 5
+\fB-c \fI<config_file>\fR
+The default configuration file is "\fI/usr/local/etc/webupd.cf\fR"with the 
+.B -c
+option an alternative configuration file may be specified on the command
+line.
+.TP 5
+.B -d
+Run in debug mode.
+.TP 5
+.B -v
+Run in verbose mode. 
+.TP 5
+.B -V
+Print the version details to standard out and exit.
+.SH FILES
+.IR webupd.cf .
+
+.SH EXAMPLES
+.IP
+.nf
+.ft CW
+webupd  caswallon-gw 
+.ft R
+.fi
+.LP
+The script will look for the configuration file in the default location
+i.e. \fI/usr/local/etc/webupd.cf\fR.
+.LP
+NB. The site names are abreviated in the example configuration file and appropriate
+alternative short path names are provided as symbolic links on disk. These sites
+could equally well have been written as "amharic-interpreter.com" "citylinux.com" etc.
+provided that the paths are available e.g. "usr/local/web/amharic-interpreter.com".
+.SH BUGS
+The script has very little input error checking. The script is designed to be used
+with 
+.B cron
+where the resolution of the symbolic hostname is predictable.  It is assumed
+that
+.B ssh 
+keys have already been exchanged and that the connection will be non problematic.
+.SH AUTHOR
+Clifford W Fulford, City Linux. Contact fulford@fulford.net or call +44 (0)709 229 5385.
+
