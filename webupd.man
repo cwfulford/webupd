@@ -49,11 +49,8 @@ been made to the web pages.
 .TP 5
 \fB-c \fI<config_file>\fR
 .br
-The default configuration file is "\fI/usr/local/etc/webupd.cf\fR".
-Using the
-.B -c
-option alows an alternative configuration file to be specified on the command
-line.
+Allows a configuration file to be identified on the command line rather than
+using the default "\fI/usr/local/etc/webupd.cf\fR".
 .TP 5
 .B -d
 Run in debug mode.
