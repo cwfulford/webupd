@@ -1,16 +1,16 @@
 <pre>
 
-#$Id: webupd.cf,v 1.7 2015/04/03 16:32:55 fulford Exp $
+#$Id: webupd.cf,v 1.11 2016/12/12 10:20:36 fulford Exp $
 # $Source: /src/merlin/usr/local/etc/RCS/webupd.cf,v $
 # $RCSfile: webupd.cf,v $
-# $Revision: 1.7 $
-# $Date: 2015/04/03 16:32:55 $
+# $Revision: 1.11 $
+# $Date: 2016/12/12 10:20:36 $
 # Author Clifford W Fulford.
 # Copyright (c) 2013 C W Fulford. All right reserved
 ########################################################
 caswallon-gw:
-	sites='ai cl cw fc fs jwf lts wb'
-	dig_cf='htwbi.conf htcl.conf htai.conf htcw.conf'
+	sites='aa ai arabic cl fc fs jmf jwf lts ti wb'
+	dig_cf='htaa.conf htai.conf htarabic.conf htcl.conf htfc.conf htfs.con htjmf.conf htjwf.conf htlts.conf htti.conf htwbi.conf'
 	wwwroot='/usr/local/web'
 
 
