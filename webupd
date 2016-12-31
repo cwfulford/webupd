@@ -1,7 +1,7 @@
 #!/bin/bash
-# $Id: webupd,v 1.34 2016/12/12 10:49:04 fulford Exp fulford $
+# $Id: webupd,v 1.35 2016/12/31 12:25:05 fulford Exp fulford $
 # $Source: /src/merlin/usr/local/etc/RCS/webupd,v $
-# $Revision: 1.34 $
+# $Revision: 1.35 $
 # Author C W Fulford.
 # Copyright (c) 2012-2013 C W Fulford. 
 # Licensed for public use under the LGPL.
@@ -18,7 +18,7 @@ while [ $# -gt 0 ];do
 		-c) config=$2;shift 22;;
 		-d) debug=1; set -x;shift ;;
 		-v) verbose=1 ;shift 1;;
-		-V) echo "$cmd $Revision: 1.34 $"|awk '{print $1,$3}';exit;;  
+		-V) echo "$cmd $Revision: 1.35 $"|awk '{print $1,$3}';exit;;  
 		 *) host=$1;shift;;
 	esac
 done
@@ -39,7 +39,7 @@ for s in $sites ;do
 done
 
 [ $verbose -gt 0 ] && echo "updating dig for $dig_cf on $host" 
-ssh -q caswallon-gw "for conf in $dig_cf;do
+ssh -q $host "for conf in $dig_cf;do
 	[ $verbose -gt 0 ] && echo "updating dig using \$conf"
 	sudo rundig -c /etc/htdig/\$conf;
 done"
