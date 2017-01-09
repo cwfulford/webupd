@@ -1,7 +1,7 @@
 #!/bin/bash
-# $Id: webupd,v 1.46 2017/01/09 11:24:36 fulford Exp fulford $
+# $Id: webupd,v 1.47 2017/01/09 11:25:42 fulford Exp fulford $
 # $Source: /src/merlin/usr/local/etc/RCS/webupd,v $
-# $Revision: 1.46 $
+# $Revision: 1.47 $
 # Author C W Fulford.
 # Copyright (c) 2012-2013 C W Fulford. 
 # Licensed for public use under the LGPL.
@@ -21,13 +21,13 @@ error=`echo $cmd|awk  '/-h/&&/-s/{print "1"}'`
 }
 while [ $# -gt 0 ];do
 	case $1 in
-		-S) static="-staticlinks";shift 22;;
-		-c) config=$2;shift 22;;
+		-S) static="-staticlinks";shift;;
+		-c) config=$2;shift 2;;
 		-d) debug=1; set -x;shift ;;
 		-h) updates=htdig; shift ;;
 		-s) updates=awstats; shift ;;
 		-v) verbose=1 ;shift 1;;
-		-V) echo "$cmd $Revision: 1.46 $"|awk '{print $1,$3}';exit;;  
+		-V) echo "$cmd $Revision: 1.47 $"|awk '{print $1,$3}';exit;;  
 		 *) host=$1;shift;;
 	esac
 done
