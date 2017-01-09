@@ -1,7 +1,7 @@
 #!/bin/bash
-# $Id: webupd,v 1.43 2017/01/09 10:35:28 fulford Exp $
+# $Id: webupd,v 1.44 2017/01/09 10:54:49 fulford Exp fulford $
 # $Source: /src/merlin/usr/local/etc/RCS/webupd,v $
-# $Revision: 1.43 $
+# $Revision: 1.44 $
 # Author C W Fulford.
 # Copyright (c) 2012-2013 C W Fulford. 
 # Licensed for public use under the LGPL.
@@ -26,7 +26,7 @@ while [ $# -gt 0 ];do
 		-h) updates=htdig; shift ;;
 		-s) updates=awstats; shift ;;
 		-v) verbose=1 ;shift 1;;
-		-V) echo "$cmd $Revision: 1.43 $"|awk '{print $1,$3}';exit;;  
+		-V) echo "$cmd $Revision: 1.44 $"|awk '{print $1,$3}';exit;;  
 		 *) host=$1;shift;;
 	esac
 done
@@ -45,7 +45,7 @@ for s in $sites ;do
 		[ $verbose -gt 0 ] &&{
 			 echo -n "updating awstats for $s on $host" 
 		}
-		ssh -q $host "cd $wwwroot/cgi-bin;sudo perl awstats.pl -config=$s -update -output |sudo dd of=$wwwroot/$s/awstats.html &2>/dev/null"
+		ssh -q $host "cd $awstats/cgi-bin;sudo perl awstats.pl -config=$s -update -output |sudo dd of=$wwwroot/$s/awstats.html &2>/dev/null"
 		[ $verbose -gt 0 ] && echo " - done." 
 	fi
 	if echo $updates|grep -q "htdig";then
