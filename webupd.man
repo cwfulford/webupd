@@ -10,6 +10,8 @@ search indexes for an arbitrary number of websites on a remote server.
 \fBwebupd\fR
 [[\fB-c\fI <config_file>\fR]
 [\fB-d\fR]
+[[\fB-h\fR]|
+[\fB-s\fR]]
 [\fB-v\fR]
 \fI<host_name>\fR] |
 [\fB-V\fR]
@@ -54,6 +56,12 @@ using the default "\fI/usr/local/etc/webupd.cf\fR".
 .TP 5
 .B -d
 Run in debug mode.
+.TP 5
+.B -h
+Update \fIhtdig\fR only.
+.TP 5
+.B -s
+Update \fIawstats\fR only.
 .TP 5
 .B -v
 Run in verbose mode. 
