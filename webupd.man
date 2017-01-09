@@ -1,4 +1,4 @@
-.TH WEBUPD 8l "1 October r1.47
+.TH WEBUPD 8l "1 October r1.48
 .SH NAME
 .B webupd
 - updates the 
