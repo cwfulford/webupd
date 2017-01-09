@@ -8,7 +8,7 @@ statistics pages and the
 search indexes for an arbitrary number of websites on a remote server.
 .SH SYNOPSIS
 \fBwebupd\fR
-[[\fB-c\fI <config_file>\fR]
+[[\fB-S\fR] [\fB-c\fI <config_file>\fR]
 [\fB-d\fR]
 [[\fB-h\fR]|[\fB-s\fR]]
 [\fB-v\fR]
@@ -52,6 +52,9 @@ been made to the web pages.
 .br
 Allows a configuration file to be identified on the command line rather than
 using the default "\fI/usr/local/etc/webupd.cf\fR".
+.TP 5
+.B -S
+Use static links when generating \fIawstats\fR web page.
 .TP 5
 .B -d
 Run in debug mode.
